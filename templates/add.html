@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>إضافة إشتراك</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">ArabNZB</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link active" href="/index.html">الإشتراكات</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/add.html">إضافة مشترك</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container center">
+    <h2>إضافة مشترك</h2>
+    <form method="post" action="/submit">
+        <!-- <div class="form-group">
+            <label for="userid">رقم المستخدم:</label>
+            <input type="text" class="form-control" id="userid" name="userid">
+        </div> -->
+        
+        <div class="form-group">
+            <label for="name">اسم المستخدم:</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        
+        <div class="form-group">
+            <label for="expiry_date">تاريخ الإنتهاء:</label>
+            <input type="date" class="form-control" id="expiry_date" name="expiry_date">
+        </div>
+        
+        <button type="submit" class="btn btn-success" onclick="return add()">إرسال</button>
+    </form>
+</div>
+</body>
+</html>
