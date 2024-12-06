@@ -11,13 +11,15 @@ def index():
     if not subscribers:
         message = "لا يوجد مشتركين"
         return render_template('index.html', message=message)
-    
+    search_query = request.args.get('search', '', type=str)
+    filtered_subscribers = [sub for sub in subscribers if search_query.lower() in sub['name'].lower()]
+    print(search_query)
     page = request.args.get('page', 1, type=int)
     per_page = 10
     total = len(subscribers)
     start = (page - 1) * per_page
     end = start + per_page
-    paginated_subscribers = subscribers[start:end]
+    paginated_subscribers = filtered_subscribers[start:end]
     total_pages = math.ceil(total / per_page)
 
     return render_template('index.html', subscribers=paginated_subscribers, total_pages=total_pages, current_page=page)
